@@ -1,12 +1,10 @@
-export class App {
-  configureRouter(config, router) {
-    config.title = 'Aurelia';
-    config.map([
-      { route: ['', 'welcome'], name: 'welcome',      moduleId: 'welcome',      nav: true, title: 'Welcome' },
-      { route: 'users',         name: 'users',        moduleId: 'users',        nav: true, title: 'Github Users' },
-      { route: 'child-router',  name: 'child-router', moduleId: 'child-router', nav: true, title: 'Child Router' }
-    ]);
+import 'bootstrap/dist/css/bootstrap.css';
 
-    this.router = router;
-  }
-}
+import angular from 'angular';
+import uirouter from 'angular-ui-router';
+
+import routing from './app.config';
+import home from './features/home';
+
+angular.module('app', [uirouter, home])
+  .config(routing);
